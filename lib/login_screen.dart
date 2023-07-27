@@ -3,10 +3,7 @@ import 'package:flutter_new/home_screen.dart';
 import 'package:flutter_new/widgets/main_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// class User{
-//   var email;
-//   User({required this.email});
-// }
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -69,15 +66,9 @@ class _LoginScreenState extends State<LoginScreen> {
               MainButton(label: "Log In",onTap: () async {
                 if (_formKey.currentState!.validate()) {
                   final SharedPreferences prefs = await SharedPreferences.getInstance();
-                  //if ( emailController.text.startsWith(RegExp(r'[a-zA-Z]')) ) {
-                    await prefs.setString('email', emailController.text);
-                  // }
-                  // else {
-                  //   await prefs.setInt('phone', emailController.text as int);
-                  // };
+                  await prefs.setString('email', emailController.text);
                   Navigator.pushNamed(
                     context,'/home',
-                      //arguments: User(email: emailController.text)
                   );
                 }
                 else {

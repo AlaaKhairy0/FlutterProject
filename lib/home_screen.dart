@@ -11,16 +11,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String email = "";
-  //int phone =0;
 
   Future<void> getCachedEmail() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-   // if ( prefs.getString('email')!.startsWith(RegExp(r'[a-zA-Z]')) ) {
-      email = prefs.getString('email') ?? '--';
-    //}
-   // else {
-      //phone = prefs.getInt('email') ?? 0;
-   // };
+    email = prefs.getString('email') ?? '--';
     setState(() {});
   }
   @override
@@ -31,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-   // User user= ModalRoute.of(context)!.settings.arguments as User;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -46,18 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Center(child: Text("Welcome")),
 
             Center(child: Text((email))),
-            //Center(child: Text((phone as String))),
 
-
-
-
-    //         if (email . startsWith(RegExp(r'[a-zA-Z]')){
-    //           Center(child: Text(email));
-    //         }
-    //         else {
-    //           Center(child: Text(phone as String));
-    //
-    // }
 
           ],
         ),
