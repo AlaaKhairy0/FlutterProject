@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_new/home_screen.dart';
-import 'package:flutter_new/widgets/main_button.dart';
+import 'package:flutter_new/views/screens/home_screen.dart';
+import 'package:flutter_new/views/widgets/main_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -48,7 +48,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     return null;
                   }
                   return 'Please enter valid mail or phone';
-                },),
+                },
+              ),
               ),
               Padding(padding: EdgeInsets.all(15) , child:
               TextFormField(

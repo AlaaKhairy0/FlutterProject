@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_new/home_screen.dart';
-import 'package:flutter_new/login_screen.dart';
+import 'package:flutter_new/views/screens/home_screen.dart';
+import 'package:flutter_new/views/screens/login_screen.dart';
+import 'package:flutter_new/views/screens/todos_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: '/',
       routes: {
-        '/': (context) => const LoginScreen(),
+        '/': (context) => const TodosScreen(),
         '/home': (context)=> const HomeScreen(),
       },
       theme: ThemeData(
