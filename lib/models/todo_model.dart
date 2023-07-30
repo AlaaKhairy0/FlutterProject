@@ -1,17 +1,17 @@
-class Welcome {
+class TodoModel {
   int? userId;
   int? id;
   String? title;
   bool? completed;
 
-  Welcome({
+  TodoModel({
     this.userId,
     this.id,
     this.title,
     this.completed,
   });
 
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+  factory TodoModel.fromJson(Map<String, dynamic> json) => TodoModel(
     userId: json["userId"],
     id: json["id"],
     title: json["title"],

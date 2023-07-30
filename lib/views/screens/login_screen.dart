@@ -36,20 +36,21 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 30,
               ),
-              Padding(padding:EdgeInsets.all(15) , child:
-              TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(labelText: "Phone Number or Email"),
-                validator: (value) {
-                  if (value!.isNotEmpty && value!.startsWith(RegExp(r'[0-9]')) && value!.length==11 ) {
-                    return null;
-                  }
-                  else if (value!.isNotEmpty && value!.startsWith(RegExp(r'[a-zA-Z]')) && value!.contains('@')){
-                    return null;
-                  }
-                  return 'Please enter valid mail or phone';
-                },
-              ),
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: TextFormField(
+                  controller: emailController  ,
+                  decoration: InputDecoration(labelText: "Phone Number or Email"),
+                  validator: (value) {
+                    if (value!.isNotEmpty && value!.startsWith(RegExp(r'[0-9]')) && value!.length==11 ) {
+                      return null;
+                    }
+                    else if (value!.isNotEmpty && value!.startsWith(RegExp(r'[a-zA-Z]')) && value!.contains('@')){
+                      return null;
+                    }
+                    return 'Please enter valid mail or phone';
+                  },
+                ),
               ),
               Padding(padding: EdgeInsets.all(15) , child:
               TextFormField(

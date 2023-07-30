@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_new/views/screens/home_screen.dart';
 import 'package:flutter_new/views/screens/login_screen.dart';
+import 'package:flutter_new/views/screens/todos_details_screen.dart';
 import 'package:flutter_new/views/screens/todos_screen.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const TodosScreen(),
         '/home': (context)=> const HomeScreen(),
+        '/todoDetailsScreen' : (context)=> const TodoDetailsScreen(),
       },
       theme: ThemeData(
 
