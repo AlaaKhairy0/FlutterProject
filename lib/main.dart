@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_new/views/screens/home_screen.dart';
 import 'package:flutter_new/views/screens/login_screen.dart';
+import 'package:flutter_new/views/screens/signup_screen.dart';
 import 'package:flutter_new/views/screens/todos_details_screen.dart';
 import 'package:flutter_new/views/screens/todos_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,11 +24,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: '/',
+      initialRoute: '/signUpScreen',
       routes: {
         '/': (context) => const LoginScreen(),
         '/home': (context)=> const HomeScreen(),
         '/todoDetailsScreen' : (context)=> const TodoDetailsScreen(),
+        '/signUpScreen': (context)=> const SignUpScreen(),
       },
       theme: ThemeData(
 

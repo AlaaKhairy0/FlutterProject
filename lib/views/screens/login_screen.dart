@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_new/views/screens/home_screen.dart';
 import 'package:flutter_new/views/widgets/main_button.dart';
+import 'package:regexpattern/regexpattern.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -42,34 +43,37 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.all(15),
                 child: TextFormField(
                   controller: emailController  ,
-                  decoration: InputDecoration(labelText: "Phone Number or Email"),
-                  validator: (value) {
-                    if (value!.isNotEmpty && value!.startsWith(RegExp(r'[0-9]')) && value!.length==11 ) {
-                      return null;
-                    }
-                    else if (value!.isNotEmpty && value!.startsWith(RegExp(r'[a-zA-Z]')) && value!.contains('@')){
-                      return null;
-                    }
-                    return 'Please enter valid mail or phone';
-                  },
+                  decoration: const InputDecoration(labelText: "Email"),
+                  // validator: (value) {
+                  //   bool isMatch = value!.isEmail() ;
+                  //   if (isMatch) {
+                  //     return null;
+                  //   }
+                  //
+                  //   return 'Please enter valid email';
+                  // },
                 ),
               ),
-              Padding(padding: EdgeInsets.all(15) , child:
+              Padding(padding: EdgeInsets.symmetric(horizontal: 15) , child:
               TextFormField(
                 controller: passwordController,
-                decoration: InputDecoration(labelText: "Password"),
-                  validator: (value) {
-                    if (value!.length <8 ) {
-                      return 'Please enter valid password';}
-                    return null;
-                  },
+                decoration: const InputDecoration(labelText: "Password"),
+                  // validator: (value) {
+                  //   bool isMatch = value!.isEmail() ;
+                  //   if (isMatch){
+                  //     return null;
+                  //   }
+                  //   else{
+                  //     return 'Please enter valid password';
+                  //   }
+                  // },
               ),
               ),
               SizedBox(
                 height: 30,
               ),
               MainButton(label: "Log In",onTap: () async {
-                if (_formKey.currentState!.validate()) {
+               // if (_formKey.currentState!.validate()) {
                  bool result =await firebaseLogin(emailController.text, passwordController.text);
                   if(result){
                     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -82,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SnackBar(content: Text('Login Failed')),
                     );
                   };
-                }
+               // }
 
               },),
               SizedBox(
@@ -106,7 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: 40,
               ),
-          MainButton(label: "No Account? Sign Up",onTap: (){},buttonColor: Colors.grey,),
+          MainButton(label: "No Account? Sign Up",onTap: (){
+            Navigator.pushNamed(context, '/signUpScreen');
+          },buttonColor: Colors.grey,),
 
             ],
           ),

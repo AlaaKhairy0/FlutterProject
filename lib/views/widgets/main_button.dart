@@ -23,7 +23,7 @@ class _MainButtonState extends State<MainButton> {
           color:widget.buttonColor?? Colors.purple,),
         child: Center(
           child: Text(
-            widget.label, style: TextStyle(fontWeight: FontWeight.bold,color:widget.textColor?? Colors.white,fontSize:16)
+            widget.label, style: TextStyle(fontWeight: FontWeight.bold,color:widget.textColor?? Colors.white,fontSize:18)
             ,
           ),
         ),

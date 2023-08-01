@@ -10,10 +10,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String email = "";
+  //String username = "";
 
   Future<void> getCachedEmail() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     email = prefs.getString('email') ?? '--';
+    //username = prefs.getString('username') ?? '--';
     setState(() {});
   }
   @override
@@ -37,7 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
           [
             Center(child: Text("Welcome")),
 
-            Center(child: Text((email))),
+           Center(child: Text((email))),
+
+           // Center(child: Text((username))),
 
 
           ],
