@@ -139,15 +139,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
-  Future<bool> firebaseSignUp(String email , String password) async {
+  firebaseSignUp(String email , String password) async {
     try {
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      if (credential.user != null){
-        return true;
-      }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -157,6 +154,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
     } catch (e) {
       print(e);
     }
-    return false;
   }
 }
