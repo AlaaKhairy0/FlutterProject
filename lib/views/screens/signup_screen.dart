@@ -102,9 +102,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                     if (_formKey.currentState!.validate()) {
                       firebaseSignUp(emailController.text, passwordController.text);
-                      // final SharedPreferences prefs = await SharedPreferences.getInstance();
-                      // await prefs.setString('username', usernameController.text);
-                      Navigator.pushNamed(context, '/');
+                      final SharedPreferences prefs = await SharedPreferences.getInstance();
+                      await prefs.setString('email', emailController.text);
+                      Navigator.pushNamed(context, '/home');
                     }
                     else{
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -141,9 +141,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   firebaseSignUp(String email , String password) async {
     try {
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
+      );
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password
       );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
